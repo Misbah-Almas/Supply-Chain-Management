@@ -40,9 +40,9 @@ public class ProductDetails {
     }
 
     public Pane getProductsByName(String productName){
-        TableColumn id = new TableColumn("Id");
+        TableColumn id = new TableColumn("Product Id");
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        TableColumn name = new TableColumn("Name");
+        TableColumn name = new TableColumn("Product Name");
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         TableColumn price = new TableColumn("Price");
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
@@ -67,4 +67,13 @@ public class ProductDetails {
 
     }
 
+    public Product getSelectedProduct(){
+        try{
+            Product selectedproduct = productTable.getSelectionModel().getSelectedItem();
+            return selectedproduct;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
